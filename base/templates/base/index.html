@@ -1,0 +1,88 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+{%load static%}
+
+{% block content %}
+<style>
+
+.back{
+background:linear-gradient(to right, #eee5e9 0%, #8e44ad 100%);
+}
+
+.flotte {
+float:right;
+
+}
+</style>
+
+<p class="flotte">
+    <img src="{% static 'images/vertical.jpg'%}" style="height: 30rem;width: 25rem;"  />
+    <br>
+    <img src="{% static 'images/vertical1.jpg'%}" style="height: 30rem;width: 25rem;"  />
+    <br>
+    <img src="{% static 'images/vert2.jpg'%}" style="height: 30rem;width: 25rem;"  />
+    <br>
+    <img src="{% static 'images/vert3.jpg'%}" style="height: 30rem;width: 25rem;"  />
+    <br>
+    <img src="{% static 'images/vert4.jpg'%}" style="height: 30rem;width: 25rem;"  />
+   </p>
+
+
+<div class="back">
+<div class="col-md-8">
+    <div class="d-flex justify-content-between">
+        
+        <div >
+          <h1><i>Manage All Museums</i></h1>
+        </div>
+        
+        <div class="align-self-center">
+            <a href="{% url 'room_forum' %}" class="btn btn-sm btn-success" style="top:3%;
+            left:55%;
+            width:150px;
+            height:40px;
+            position: absolute;
+            background-color:#945184">Add New Museum</a>
+            <br>
+            <br>
+            <br>
+            <a href="{% url 'list_museums' %}" class="btn btn-sm btn-success" style=" width:150px;height:40px;background-color:#EF9597;">See all Museums</a>
+            <br>
+            <br>
+            <a href="{% url 'home' %}" class="btn btn-sm btn-success" style=" width:150px;height:40px;background-color:#C1D2DB;">View site</a>
+        </div>
+    </div>
+    <hr>
+    <table class="table table-bordered text-center">
+        <tr class="table-heading">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Image</th>
+            <th>Lien</th>
+            <th>Description</th>
+            <th>Actions</th>
+          
+        </tr>
+        {% for museum in museums %}  
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ museum.name }}</td>
+            <td>{{ museum.location }}</td>
+            <td><img src="{{ STATICFILES_DIRS}}/{{museum.image}}" style="height: 5em;"></td>
+            <td><a href="{{ museum.lien }}">{{ museum.lien }}</a></td>
+            <td>{{ museum.description }}</td>
+            <td>
+                <a href="{% url 'detail_view' museum.id %}" class="btn btn-sm btn-success">View</a>
+                <a href="{% url 'update_view' museum.id %}"  class="btn btn-sm btn-info" style="background-color: rgb(216, 172, 61);">Edit</a>
+                <a href="{% url 'delete_view' museum.id %}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,358 @@
+{% extends 'main.html' %}
+{%load static%}
+{% block content %}
+
+<div class="heading">
+    <div class="heading-museums">
+    <h1>Museums</h1>
+    </div>
+ </div>
+
+ <section class="packages">
+
+    <h1 class="heading-title">Choose where you want to pass your historical adventure </h1>
+
+    <div>
+    <form action="" method="GET" id="form1">
+      <h1><label for="region">Choose your region:</label></h1>
+<select id="region" name="q">
+  <option value="mahdia">Mahdia</option>
+  <option value="tunis">Tunis</option>
+  <option value="monastir">Monastir</option>
+  <option value="sousse">Sousse</option>
+  <option value="Zaghouan">Zaghouan</option>
+  <option value="Tozeur">Tozeur</option>
+  <option value="Tataouine">Tataouine</option>
+  <option value="Siliana">Siliana</option>
+  <option value="Sidi Bouzid">Sidi Bouzid</option>
+  <option value="Sfax">Sfax</option>
+  <option value="Nabeul">Nabeul</option>
+  <option value="Medenine">Medenine</option>
+  <option value="Kef">Kef</option>
+  <option value="Kebili">Kebili</option>
+  <option value="Kasserine">Kasserine</option>
+  <option value="Kairouan">Kairouan</option>
+  <option value="Jendouba">Jendouba</option>
+  <option value="Gafsa">Gafsa</option>
+  <option value="Gabes">Gabes</option>
+  <option value="Bizerte">Bizerte</option>
+</select>
+<button type="submit" form="form1" value="Search" class="btn">Search</button>
+</form>
+
+    </div>
+
+    <br>
+    
+   <div class="box-container">
+      
+      {% for room in rooms%}
+      
+      <div class="box">
+         
+         <div class="image">
+           <img src="{{ STATICFILES_DIRS}}/{{room.image}}" alt="">
+         </div>
+
+         <div class="content">
+            
+            <h3>{{room.name}}</h3>
+            <p>
+               {{room.description}}
+               <br>
+               <div style="font-size: medium;"> <i class="fa fa-map-marker" aria-hidden="true"></i>  {{room.location}} ,Tunisia</div>
+               <br>
+
+      {% if room.name == "Paleo-Christian Museum" %}
+         
+      {% if AV4 >= 0.1 and AV4 < 1 %}
+       <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 >= 1.1 and AV4 < 2 %}
+       <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 >= 2.1 and AV4 < 3 %}
+       <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 >= 3.1 and AV4 < 4 %}
+       <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 >= 4.1 and AV4 < 5 %}
+       <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 == 0 %}
+       <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 == 1 %}
+       <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 == 2 %}
+       <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 == 3 %}
+       <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 == 4 %}
+       <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV4 == 5 %}
+       <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {%endif%} 
+       <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" 
+         alt="" style="width: 5 rem; height: 2rem;"> {{message_count4}} Reviews</div>
+
+       {%endif%}
+
+       {% if room.name == "City of Sciences" %}
+         
+       {% if AV5 >= 0.1 and AV5 < 1 %}
+        <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 >= 1.1 and AV5 < 2 %}
+        <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 >= 2.1 and AV5 < 3 %}
+        <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 >= 3.1 and AV5 < 4 %}
+        <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 >= 4.1 and AV5 < 5 %}
+        <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 == 0 %}
+        <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 == 1 %}
+        <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 == 2 %}
+        <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 == 3 %}
+        <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 == 4 %}
+        <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV5 == 5 %}
+        <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {%endif%} 
+      <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" 
+         alt="" style="width: 5 rem; height: 2rem;"> {{message_count5}} Reviews</div>
+
+       {%endif%}
+
+       {% if room.name == "Postal Museum" %}
+         
+       {% if AV6 >= 0.1 and AV6 < 1 %}
+        <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 >= 1.1 and AV6 < 2 %}
+        <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 >= 2.1 and AV6 < 3 %}
+        <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 >= 3.1 and AV6 < 4 %}
+        <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 >= 4.1 and AV6 < 5 %}
+        <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 == 0 %}
+        <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 == 1 %}
+        <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 == 2 %}
+        <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 == 3 %}
+        <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 == 4 %}
+        <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV6 == 5 %}
+        <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {%endif%} 
+      <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" 
+         alt="" style="width: 5 rem; height: 2rem;"> {{message_count6}} Reviews</div>
+
+       {%endif%}
+
+       {% if room.name == "Douz_museum" %}
+         
+       {% if AV7 >= 0.1 and AV7 < 1 %}
+        <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 >= 1.1 and AV7 < 2 %}
+        <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 >= 2.1 and AV7 < 3 %}
+        <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 >= 3.1 and AV7 < 4 %}
+        <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 >= 4.1 and AV7 < 5 %}
+        <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 == 0 %}
+        <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 == 1 %}
+        <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 == 2 %}
+        <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 == 3 %}
+        <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 == 4 %}
+        <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV7 == 5 %}
+        <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {%endif%} 
+      <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" 
+         alt="" style="width: 5 rem; height: 2rem;"> {{message_count7}} Reviews</div>
+
+       {%endif%}
+
+       {% if room.name == "ATP Tunis (Dar Ben Abdallah)" %}
+         
+       {% if AV9 >= 0.1 and AV9 < 1 %}
+        <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 >= 1.1 and AV9 < 2 %}
+        <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 >= 2.1 and AV9 < 3 %}
+        <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 >= 3.1 and AV9 < 4 %}
+        <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 >= 4.1 and AV9 < 5 %}
+        <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 == 0 %}
+        <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 == 1 %}
+        <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 == 2 %}
+        <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 == 3 %}
+        <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 == 4 %}
+        <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV9 == 5 %}
+        <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {%endif%} 
+      <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" 
+         alt="" style="width: 5 rem; height: 2rem;"> {{message_count9}} Reviews</div>
+
+       {%endif%}
+      
+       {% if room.name == "guallela museum" %}
+         
+       {% if AV8 >= 0.1 and AV8 < 1 %}
+        <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 >= 1.1 and AV8 < 2 %}
+        <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 >= 2.1 and AV8 < 3 %}
+        <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 >= 3.1 and AV8 < 4 %}
+        <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 >= 4.1 and AV8 < 5 %}
+        <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 == 0 %}
+        <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 == 1 %}
+        <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 == 2 %}
+        <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 == 3 %}
+        <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 == 4 %}
+        <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {% elif AV8 == 5 %}
+        <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+        {%endif%} 
+      <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" 
+         alt="" style="width: 5 rem; height: 2rem;"> {{message_count8}} Reviews</div>
+
+       {%endif%}
+
+            {% if room.name == "The Archaeological Museum of El Jem"  %}
+            {% if AV2 >= 0.1 and AV2 < 1 %}
+       <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 >= 1.1 and AV2 < 2 %}
+       <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 >= 2.1 and AV2 < 3 %}
+       <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 >= 3.1 and AV2 < 4 %}
+       <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 >= 4.1 and AV2 < 5 %}
+       <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 == 0 %}
+       <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 == 1 %}
+       <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 == 2 %}
+       <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 == 3 %}
+       <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 == 4 %}
+       <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV2 == 5 %}
+       <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {%endif%} 
+      <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" alt="" style="width: 5 rem; height: 2rem;"> {{message_count2}} Reviews</div>
+
+            {%endif%}
+            
+   {% if room.name == "bardo"  %}
+
+      {% if AV1 >= 0.1 and AV1 < 1 %}
+       <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 >= 1.1 and AV1 < 2 %}
+       <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 >= 2.1 and AV1 < 3 %}
+       <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 >= 3.1 and AV1 < 4 %}
+       <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 >= 4.1 and AV1 < 5 %}
+       <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 == 0 %}
+       <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 == 1 %}
+       <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 == 2 %}
+       <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 == 3 %}
+       <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 == 4 %}
+       <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV1 == 5 %}
+       <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {%endif%} 
+      <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" alt="" style="width: 5 rem; height: 2rem;"> {{message_count1}} Reviews</div>
+
+       {%endif%}
+
+            {% if room.name == "carthage"  %}
+            {% if AV3 >= 0.1 and AV3 < 1 %}
+       <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 >= 1.1 and AV3 < 2 %}
+       <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 >= 2.1 and AV3 < 3 %}
+       <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 >= 3.1 and AV3 < 4 %}
+       <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 >= 4.1 and AV3 < 5 %}
+       <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 == 0 %}
+       <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 == 1 %}
+       <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 == 2 %}
+       <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 == 3 %}
+       <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 == 4 %}
+       <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {% elif AV3 == 5 %}
+       <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 150px; height: 20px;"></center>
+       {%endif%} 
+      <br>
+       <div style="font-size: medium;">  <img src="{% static 'images/review.png'%}" alt="" style="width: 5 rem; height: 2rem;"> {{message_count3}} Reviews</div>
+
+       
+            {%endif%}
+            
+            <a href="{{room.lien}}" class="btn">Read more</a>
+
+          
+
+           
+         </div>
+      </div>
+      {% endfor %}
+     
+ 
+   </div>
+  
+    
+ <div class="load-more"><span class="btn">load more</span></div>
+  </section>
+  
+
+{% endblock %}

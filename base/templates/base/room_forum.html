@@ -1,0 +1,20 @@
+{%load static%}
+
+<style>
+.decora{
+background: linear-gradient(to right, #eee5e9 0%, #8e44ad 100%);
+}
+
+</style>
+<div class="decora">
+<form method="POST" enctype="multipart/form-data">
+ 
+    <!-- Security token -->
+    {% csrf_token %}
+ 
+    <!-- Using the formset -->
+    {{ form.as_p }}
+     
+    <input type="submit" value="Submit">
+</form>
+</div>

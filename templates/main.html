@@ -1,0 +1,94 @@
+
+{%load static%}
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+       <!-- swiper css link  -->
+   
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
+
+<!-- custom js file link  -->
+
+
+
+
+<link rel="stylesheet"  href="{% static 'styles/style.css' %}">
+    
+    
+    <title>MyMuseum</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+  
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+       <h1> <li>{{ message }}</li></h1>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% block content %}
+
+    {% endblock    %}
+
+    {% include 'footer.html' %}
+
+    <!-- swiper js link  -->
+
+    
+
+</body>
+
+<script>
+
+
+var swiper = new Swiper(".home-slider", {
+    loop:true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+ </script>
+
+ <script>
+    let loadMoreBtn = document.querySelector('.packages .load-more .btn');
+    let currentItem = 3;
+    
+    loadMoreBtn.onclick = () =>{
+       let boxes = [...document.querySelectorAll('.packages .box-container .box')];
+       for (var i = currentItem; i < currentItem + 3; i++){
+          boxes[i].style.display = 'inline-block';
+       };
+       currentItem += 3;
+       if(currentItem >= boxes.length){
+          loadMoreBtn.style.display = 'none';
+       }
+    }
+
+
+ </script>
+
+</html>
+

@@ -1,0 +1,467 @@
+{% extends 'main.html' %}
+
+
+{% load static%}
+
+{% block content %}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<style>
+ 
+   .star_rating{
+     user-select: none;
+     align-items: center;
+      background-color: white;
+      font-family:Arial, Helvetica, sans-serif;
+      flex-direction: column; 
+      padding:1.4rem 2.5rem;
+      margin: .4rem;
+     height: 40vh;
+     width: 100vh;
+     border-radius: .4rem;
+     text-align: center;
+       }
+   .card {
+       position: relative;
+       display: flex;
+       flex-direction: column;
+       min-width: 0;
+       padding: 50px;
+       width: 1000px;
+       word-wrap: break-word;
+       background-color: #fff;
+       background-clip: border-box;
+       border-radius: 6px;
+   }
+   
+   .comment-box{
+       
+       padding:2px;
+   }
+   
+   
+   
+   .comment-area textarea{
+      resize: none; 
+           border: 1px solid #ad9f9f;
+   }
+   
+   
+   .form-control:focus {
+       color: #495057;
+       background-color: #fff;
+       border-color: #ffffff;
+       outline: 0;
+       box-shadow: 0 0 0 1px #8e44ad !important;
+   }
+   
+   .send {
+       color: #fff;
+       background-color: #8e44ad;
+       border-color: #8e44ad;
+   }
+   
+   .send:hover {
+       color: #fff;
+       background-color: #8e44ad;
+       border-color: #8e44ad;
+   }
+   
+   
+   
+   
+   .rating>input {
+       display: none
+   }
+   
+   .rating>label {
+           position: relative;
+       width: 19px;
+       font-size: 25px;
+       color: #ff0000;
+       cursor: pointer;
+   }
+   
+   .rating>label::before {
+       content: "\2605";
+       position: absolute;
+       opacity: 0
+   }
+   
+   .rating>label:hover:before,
+   .rating>label:hover~label:before {
+       opacity: 1 !important
+   }
+   
+   .rating>input:checked~label:before {
+       opacity: 1
+   }
+   
+   .rating:hover>input:checked~label:before {
+       opacity: 0.4
+   }
+      .panel {
+       box-shadow: 0 2px 0 rgba(255, 255, 255, 0.075);
+       border-radius: 0;
+       border: 0;
+       margin-bottom: 15px;
+   }
+   
+   .panel .panel-footer, .panel>:last-child {
+       border-bottom-left-radius: 0;
+       border-bottom-right-radius: 0;
+   }
+   
+   .panel .panel-heading, .panel>:first-child {
+       border-top-left-radius: 0;
+       border-top-right-radius: 0;
+   }
+   
+   .panel-body {
+       padding: 25px 20px;
+   }
+   
+   
+   
+     .decoration{
+      background:url(/static/images/Musée-archéologique-dEl-Jem-Mahdia1.jpg) ;
+     }
+   
+   .rating:not(:checked) > input {
+       position:absolute;
+       top:-9999px;
+       clip:rect(0, 0, 0, 0);
+   }
+   .rating:not(:checked) > label {
+       float:right;
+       width:1em;
+       padding:0 .8em;
+       overflow:hidden;
+       white-space:nowrap;
+       cursor:pointer;
+       font-size:500%;
+       line-height:1.2;
+       color:#ddd;
+   }
+   .rating:not(:checked) > label:before {
+       content:'★ ';
+       
+   }
+   .rating > input:checked ~ label {
+       color: #7d25a3;
+   }
+   .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
+       color: #f1ee31;
+   }
+   .rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
+       color: #8e44ad;
+   }
+   
+       .decor{
+     
+       height: 80vh;
+      
+       align-items: center;
+   
+       }
+   
+   
+   
+       input{
+      width:100%;
+      padding:1rem;
+      font-size: 1.7rem;
+      color:rgb(185, 177, 177);
+      margin:.6rem 0;
+      border:.1rem solid rgba(209, 209, 209, 0.3);
+      text-transform: none;
+    }
+    
+   input{
+      border-color: var(--orange);;
+    }
+   </style>
+
+<!-- home section starts  -->
+ <div class="decoration">
+  <h1 class="heading-title"> The Archaeological Museum Of El Jem </h1>
+  <section class="home-about">
+  <div class="content">
+<h3>Discover The Archaeological Museum Of El Jem</h3>
+<p>El Jem archaeological museum is a Tunisian museum located in the city of El Jem, the ancient Thysdrus. Founded in 1970, it was renovated in 2002.
+
+    It is located in the immediate vicinity of the first amphitheatres of ancient Thysdrus – the last, largest and best preserved is listed as a World Heritage Site. The museum is accessible on presentation of the entrance ticket to the amphitheater.
+    
+    In a very didactic presentation, it includes an important collection of Roman mosaics, covering a period from the 2nd century to the 5th century, which brings together a good part of the pieces discovered in the city, a certain number of others being preserved in the museums of Sousse and especially Bardo.
+    
+    Located away from the tourist circuits, the archaeological museum of El Jem is really worth the detour. It is served by a calm atmosphere and a successful museography. Well preserved, the huge mosaics deliver their colors intact in the subdued daylight. They come from the excavations of ancient Thysdrus. The museum has recently doubled in size and shows mosaics never before exhibited.
+    
+    There are also many mosaics with geometric ornaments or figurative scenes, with in particular scenes of wild animals, hunting scenes but also scenes of wild life, including two mosaics found during excavations carried out at the “house of the Dionysian procession”: tiger attacking two onagers and lions devouring a boar. These representations of daily life are typical of African mosaics1. The fawns are treated with rich colors and subtle gradations; however the cohesion of the decor and the animals is awkward
+    
+     
+    
+    Specialists recommend visiting this museum before visiting the other remains of the ancient city of Thysdrus – today, El Jem –. It is because this space collects many architectural elements that went into the decoration of the sumptuous residences and public buildings of Thysdritan, in particular, the dazzling mosaic floors, certainly among the most beautiful of Roman antiquity.
+    
+    The museum was built on the site of a Roman villa whose spatial organization it restores: a central courtyard surrounded by a peristyle – courtyard – which gives access to the rooms. There are exhibited objects – sculptures, mosaic paintings, ceramics, etc. – from excavation campaigns carried out at Thysdrus as well as in the vicinity of the city.
+    
+    Recently, this space has been enriched by a new wing which very eloquently illustrates the richness and diversity of the craftsmanship of the Roman era.
+    
+    The museum gives direct access to an “archaeological park” including the remains of the so-called villa of the peacock and of Sollertiana, a superb patrician residence which has preserved many of its mosaic floors in situ. In the same area, a life-size reconstruction of the “House of Africa” ​​was carried out, a sumptuous aristocratic residence built around the 170s AD. accidentally discovered in the 1990s and which takes its name from two mosaic paintings featuring, in their central medallion, one the goddess Africa, the other the province of Africa, the only known representations of the African continent.
+    </p>
+   <br>
+   <h3> The Archaeological Museum Of El Jem in pictures </h3>
+
+
+
+  </div>
+
+</section>
+
+ </div>
+
+<section class="home">
+
+  <div class="swiper home-slider">
+
+     <div class="swiper-wrapper">
+
+        <div class="swiper-slide slide" style="background:url(/static/images/Musée-archéologique-dEl-Jem-Mahdia1.jpg) ">
+           <div class="content">
+              
+           </div>
+        </div>
+
+        <div class="swiper-slide slide" style="background:url(/static/images/Musée-archéologique-dEl-Jem-Mahdia3.jpg) ">
+           <div class="content">
+              
+           </div>
+        </div>
+
+        <div class="swiper-slide slide" style="background:url(/static/images/Musée-archéologique-dEl-Jem-Mahdia2.jpg) ">
+           <div class="content">
+             
+            
+           </div>
+        </div>
+        
+     </div>
+
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+
+  </div>
+
+</section>
+
+<!-- home section ends -->
+
+<br><br>
+
+<section class="home-about">
+    <div class="content">
+  <h3> The Archaeological Museum Of El Jem in video </h3>
+  <br>
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/9U9xLSSLNto" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  
+  </div>
+
+  <div class="content">
+    <h3> The Archaeological Museum Of El Jem in map </h3>
+    <br>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d52106.54567286107!2d10.705582!3d35.289601!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdca677bc05525dc5!2sMus%C3%A9e%20Arch%C3%A9ologique%20d&#39;El%20Djem!5e0!3m2!1sfr!2stn!4v1672180214801!5m2!1sfr!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+    </div>
+  
+  
+  
+  </section>
+
+  
+
+
+<br><br>
+
+
+ 
+<section class="home-about">
+    <div class="content">
+        <h3>Hours of operation</h3>
+        <b><p style="color: #7d25a3;">From 16/09 to 18/06 : 08.00 - 17.30</p>
+            <p style="color: #7d25a3;">From 18/07 to 15/09 : 08.00 - 18:30</p>
+
+            
+            
+           <p  style="color: #d8276b;" >Entrance fee:</p> 
+           
+           <p> Visit Cost: 10d including entrance to the amphitheatre and the museum</p>
+            <p style="color: #d82727;" >Open: 7/7</p>
+        </b> 
+
+
+ 
+   </div>
+</section>
+ 
+ 
+ 
+ 
+
+<section class="home-about">
+   <div class="content">
+
+   <div class="comment-form">
+    <form method="POST" enctype="multipart/form-data">
+        
+        <div class="card">
+              
+   <div class="row">
+       
+       
+       <div class="col-10">
+           
+           <div class="comment-box ml-2">
+               
+              <center><h1 style="font-size:xx-large;">Comments & Ratings</h1></center>
+               <br>
+               <br>
+               <br>
+
+               <hr>
+               <hr>
+     {% for message in room_messages%}
+   
+       
+     <div>
+      <p>
+         {% if request.user == message.user %}
+         <a href="{% url 'delete-message' message.id%}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        
+         {%endif%}
+         <small>@{{message.user}}  {{message.created|timesince}} ago  </small>
+
+      </p>
+      <p>{{message.body}} | {{message.rate}} <br>
+        {% if message.image %}
+        <img src="{{STATICFILES_DIRS}}/{{message.image}}" style="height: 30rem;">
+          {% endif %}
+        
+    </p>
+
+
+         <hr>
+     </div>
+     {%endfor%}
+    
+         
+     {%if request.user.is_authenticated %}
+     
+   
+        <center><h1 style="font-size: x-large;">Please feel free to give us your feedback !</h1></center>
+        <div class="star_rating" >
+           <br>
+           <br>
+           <br>
+         
+        <div class="rating"> 
+           <input type="radio" name="rating5" value="5" id="5"><label for="5">☆</label>
+           <input type="radio" name="rating4" value="4" id="4"><label for="4">☆</label> 
+           <input type="radio" name="rating3" value="3" id="3"><label for="3">☆</label>
+           <input type="radio" name="rating2" value="2" id="2"><label for="2">☆</label>
+           <input type="radio" name="rating1" value="1" id="1"><label for="1">☆</label>
+       </div>
+   </div>
+
+
+               <div class="comment-area">
+               
+                   
+                   <textarea class="form-control" name="body" placeholder="Leave your comment here ..." rows="4" cols="100"></textarea>
+                   
+               </div>
+            
+                <input class="btn btn-trans btn-icon fa fa-camera add-tooltip" type="file"
+                       id="avatar" name="avatar" style="background-color: #8e44ad; width: 30rem;"
+                       accept="image/png, image/jpeg , image/jpg">
+                
+               
+               <div class="comment-btns mt-2">
+                   
+                   <div class="row">
+                       
+                 
+                       <div class="col-6">
+                           
+                           <div class="pull-right">
+                               {%csrf_token%}
+                               
+                           <button class="btn btn-success send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button>      
+                               
+                           </div>
+                       
+                       </div>
+                   
+                   </div>
+               
+               </div>
+       
+           
+           </div>
+       
+       </div>
+   
+   
+   </div>
+
+</div>
+ 
+{%else%}
+     
+<h1><a href="{% url 'login'%}">Login</a> /<a href="{% url 'register'%}">Sign up</a></h1>
+
+{%endif%}
+</form>
+</div>
+
+  </div>
+</section>
+
+<section class="home-about">
+    <div class="content">
+
+       <h3><center>The average rating of {{message_count}} visitors</center></h3><br>
+       <h2 name="ch"><center>{{ch1}}</center></h2>
+        {% if AV1 >= 0.1 and AV1 < 1 %}
+       <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 >= 1.1 and AV1 < 2 %}
+       <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 >= 2.1 and AV1 < 3 %}
+       <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 >= 3.1 and AV1 < 4 %}
+       <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 >= 4.1 and AV1 < 5 %}
+       <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 == 0 %}
+       <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 == 1 %}
+       <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 == 2 %}
+       <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 == 3 %}
+       <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 == 4 %}
+       <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV1 == 5 %}
+       <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {%endif%}
+ 
+    </div>
+ </section>
+
+
+   {% endblock content %}
+  

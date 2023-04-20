@@ -1,0 +1,112 @@
+<!-- header section starts  -->
+{%load static%}
+<section class="header">
+  <a href="{% url 'home' %}" class="logo">
+    <img src="{% static 'images/logo.png'%}" style=" height: 7rem;width: 9rem; position : fixed; left : 40px; top : 10px;" />
+    <span>My</span>Museum
+</a>
+ 
+ 
+    <nav class="navbar">
+      <a class="active" href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a>
+       <a href="{% url 'about' %}"><i class="fa fa-info-circle" aria-hidden="true"></i>about</a>
+       <a href="{% url 'list_museums' %}"><i class="fas fa-monument"></i>Museums</a>
+       <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+       
+
+       {% if request.user.is_superuser %}
+       
+       <a href="{% url 'index' %}"><i class="fa fa-user-circle-o"></i>Admin</a>
+       {%endif%}
+       
+    </nav>
+    <div id="menu-btn" class="fas fa-bars"></div>
+            
+            
+    <div class="icons">
+      <i class="fas fa-search" id="search-btn"></i>
+      
+  </div>
+              
+    <form action="" class="search-bar-container" method="GET">
+      <input type="text" id="search-bar" name="q" placeholder="search here...">
+      <label for="search-bar" class="fas fa-search"></label>
+  </form>
+
+
+  <script>
+let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.header .navbar');
+let searchBtn = document.querySelector('#search-btn');
+let searchBar = document.querySelector('.search-bar-container');
+let formBtn = document.querySelector('#login-btn');
+let loginForm = document.querySelector('.login-form-container');
+let formClose = document.querySelector('#form-close');
+
+menu.onclick = () =>{
+   menu.classList.toggle('fa-times');
+   navbar.classList.toggle('active');
+};
+
+window.onscroll = () =>{
+   menu.classList.remove('fa-times');
+   navbar.classList.remove('active');
+   searchBtn.classList.remove('fa-times');
+    searchBar.classList.remove('active');
+    loginForm.classList.remove('active');
+};
+searchBtn.addEventListener('click', () =>{
+   searchBtn.classList.toggle('fa-times');
+   searchBar.classList.toggle('active');
+});
+
+formBtn.addEventListener('click', () =>{
+   loginForm.classList.add('active');
+});
+
+formClose.addEventListener('click', () =>{
+   loginForm.classList.remove('active');
+});
+  </script>
+              
+
+            
+        
+        
+        
+        
+         
+    {% if request.user.is_authenticated %}
+ 
+    <h1> <p>Hello {{request.user}}</p> </h1>
+<h1><a href="{% url 'logout'%}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> </h1>
+{%else%}
+<a href="{% url 'login' %}">
+  <img src="{% static 'images/avatar.svg' %} " style="height:5em;" />
+  <h1><p>Login</p></h1>
+</a>
+{% endif %}
+
+    
+    <div id="menu-btn" class="fas fa-bars"></div>
+ 
+ </section>
+ 
+<hr>
+
+<style>
+  input{
+      width:100%;
+      padding:1rem;
+      font-size: 1.7rem;
+      color:rgb(185, 177, 177);
+      margin:.6rem 0;
+      border:.1rem solid rgba(209, 209, 209, 0.3);
+      text-transform: none;
+    }
+    
+   input{
+      border-color: var(--orange);;
+    }
+</style>
+<!-- header section ends -->

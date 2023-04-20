@@ -1,0 +1,456 @@
+{% extends 'main.html' %}
+
+
+{% load static%}
+
+{% block content %}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<style>
+ 
+   .star_rating{
+     user-select: none;
+     align-items: center;
+      background-color: white;
+      font-family:Arial, Helvetica, sans-serif;
+      flex-direction: column; 
+      padding:1.4rem 2.5rem;
+      margin: .4rem;
+     height: 40vh;
+     width: 100vh;
+     border-radius: .4rem;
+     text-align: center;
+       }
+   .card {
+       position: relative;
+       display: flex;
+       flex-direction: column;
+       min-width: 0;
+       padding: 50px;
+       width: 1000px;
+       word-wrap: break-word;
+       background-color: #fff;
+       background-clip: border-box;
+       border-radius: 6px;
+   }
+   
+   .comment-box{
+       
+       padding:2px;
+   }
+   
+   
+   
+   .comment-area textarea{
+      resize: none; 
+           border: 1px solid #ad9f9f;
+   }
+   
+   
+   .form-control:focus {
+       color: #495057;
+       background-color: #fff;
+       border-color: #ffffff;
+       outline: 0;
+       box-shadow: 0 0 0 1px #8e44ad !important;
+   }
+   
+   .send {
+       color: #fff;
+       background-color: #8e44ad;
+       border-color: #8e44ad;
+   }
+   
+   .send:hover {
+       color: #fff;
+       background-color: #8e44ad;
+       border-color: #8e44ad;
+   }
+   
+   
+   
+   
+   .rating>input {
+       display: none
+   }
+   
+   .rating>label {
+           position: relative;
+       width: 19px;
+       font-size: 25px;
+       color: #ff0000;
+       cursor: pointer;
+   }
+   
+   .rating>label::before {
+       content: "\2605";
+       position: absolute;
+       opacity: 0
+   }
+   
+   .rating>label:hover:before,
+   .rating>label:hover~label:before {
+       opacity: 1 !important
+   }
+   
+   .rating>input:checked~label:before {
+       opacity: 1
+   }
+   
+   .rating:hover>input:checked~label:before {
+       opacity: 0.4
+   }
+      .panel {
+       box-shadow: 0 2px 0 rgba(255, 255, 255, 0.075);
+       border-radius: 0;
+       border: 0;
+       margin-bottom: 15px;
+   }
+   
+   .panel .panel-footer, .panel>:last-child {
+       border-bottom-left-radius: 0;
+       border-bottom-right-radius: 0;
+   }
+   
+   .panel .panel-heading, .panel>:first-child {
+       border-top-left-radius: 0;
+       border-top-right-radius: 0;
+   }
+   
+   .panel-body {
+       padding: 25px 20px;
+   }
+   
+   
+   
+     .decoration{
+      background:url(/static/images/carthage.jpg) ;
+     }
+   
+   .rating:not(:checked) > input {
+       position:absolute;
+       top:-9999px;
+       clip:rect(0, 0, 0, 0);
+   }
+   .rating:not(:checked) > label {
+       float:right;
+       width:1em;
+       padding:0 .8em;
+       overflow:hidden;
+       white-space:nowrap;
+       cursor:pointer;
+       font-size:500%;
+       line-height:1.2;
+       color:#ddd;
+   }
+   .rating:not(:checked) > label:before {
+       content:'★ ';
+       
+   }
+   .rating > input:checked ~ label {
+       color: #7d25a3;
+   }
+   .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
+       color: #f1ee31;
+   }
+   .rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
+       color: #8e44ad;
+   }
+   
+       .decor{
+     
+       height: 80vh;
+      
+       align-items: center;
+   
+       }
+   
+   
+   
+       input{
+      width:100%;
+      padding:1rem;
+      font-size: 1.7rem;
+      color:rgb(185, 177, 177);
+      margin:.6rem 0;
+      border:.1rem solid rgba(209, 209, 209, 0.3);
+      text-transform: none;
+    }
+    
+   input{
+      border-color: var(--orange);;
+    }
+   </style>
+
+<!-- home section starts  -->
+ <div class="decoration">
+  <h1 class="heading-title">Carthage National Museum</h1>
+  <section class="home-about">
+  <div class="content">
+<h3>Discover Carthage National Museum</h3>
+<p>Carthage National Museum is a national museum in Byrsa, Tunisia.
+Along with the Bardo National Museum, it is one of the two main local archaeological museums in the region. The edifice sits atop Byrsa Hill, in the heart of the city of Carthage.
+Founded in 1875, it houses many archaeological items from the Punic era and other periods.
+In 1975, excavations exposed a Late Roman house with fragments of Roman mosaics and further off the property was a large church dating to the 5th century.
+Building plans to create a site museum went into effect in 1983; a year later the museum opened through financial donations from 59 members of a non-profit organization EARTHWATCH.
+The museum is a collaboration of specialists and volunteers who dedicated their talents and resources to preserve the threatened site of the ancient Mediterranean, Carthage.[1]
+The Carthage National Museum is located near the Cathedral of Saint-Louis of Carthage.
+ It allows visitors to appreciate the magnitude of the city during the Punic and Roman eras.
+  Some of the best pieces found in excavations are limestone/marble carvings, depicting animals, plants and even human sculptures.
+   Of special note is a marble sarcophagus of a priest and priestess from the 3rd century BC, discovered in the necropolis of Carthage. 
+   The Museum also has a noted collection of masks and jewelry in cast glass, Roman mosaics including the famous "Lady of Carthage", a vast collection of Roman amphoras.
+    It also contains numerous local items from the period of the Byzantine Empire.
+    Also on display are objects of ivory.
+</p>
+   <br>
+   <h3> Carthage National Museum in pictures </h3>
+
+
+
+  </div>
+
+</section>
+
+ </div>
+
+<section class="home">
+
+  <div class="swiper home-slider">
+
+     <div class="swiper-wrapper">
+
+        <div class="swiper-slide slide" style="background:url(/static/images/carthage_1.jpg) ">
+           <div class="content">
+              
+           </div>
+        </div>
+
+        <div class="swiper-slide slide" style="background:url(/static/images/Lampes.jpg) ">
+           <div class="content">
+              
+           </div>
+        </div>
+
+        <div class="swiper-slide slide" style="background:url(/static/images/Bijoux.jpg) ">
+           <div class="content">
+             
+            
+           </div>
+        </div>
+        
+     </div>
+
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+
+  </div>
+
+</section>
+
+<!-- home section ends -->
+
+<br><br>
+
+<section class="home-about">
+    <div class="content">
+  <h3> Carthage National Museum in video </h3>
+  <br>
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/LxHXtLpoWfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  
+  </div>
+
+  <div class="content">
+    <h3> Carthage National Museum in map </h3>
+    <br>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.550871992236!2d10.322210414642283!3d36.85323107241364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2b4c97769a9b1%3A0xf946d64ee49cdb69!2sMus%C3%A9e%20national%20de%20Carthage!5e0!3m2!1sfr!2stn!4v1674543459267!5m2!1sfr!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+    </div>
+  
+  
+  
+  </section>
+
+  
+
+
+<br><br>
+
+
+<section class="home-about">
+    <div class="content">
+        <h3>Hours of operation</h3>
+        <b><p style="color: #7d25a3;">The museum is open daily from 9.30 a.m. to 5.30 p.m.</p>
+            <p style="color: #7d25a3;">During summer time from 8.00 a.m. to 7 p.m.</p>
+
+            
+            
+           <p  style="color: #d8276b;" >Entrance fee:</p> 
+           
+           <p> 10 TND (joint admission to the monuments of Carthage) - ticket valid for one day.</p>
+        </b> 
+
+
+ 
+   </div>
+</section>
+ 
+ 
+ 
+
+<section class="home-about">
+   <div class="content">
+
+   <div class="comment-form">
+      <form action="" method="POST" >
+<div class="card">
+              
+   <div class="row">
+       
+       
+       <div class="col-10">
+           
+           <div class="comment-box ml-2">
+               
+              <center><h1 style="font-size:xx-large;">Comments & Ratings</h1></center>
+               <br>
+               <br>
+               <br>
+
+               <hr>
+               <hr>
+     {% for message in room_messages%}
+   
+       
+     <div>
+      <p>
+         {% if request.user == message.user %}
+         <a href="{% url 'delete-message' message.id%}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        
+         {%endif%}
+         <small>@{{message.user}}  {{message.created|timesince}} ago  </small>
+
+      </p>
+      <p>{{message.body}} | {{message.rate}} <br>
+        {% if message.image %}
+        <img src="{{STATICFILES_DIRS}}/{{message.image}}" style="height: 30rem;">
+          {% endif %}
+        
+    </p>
+
+
+         <hr>
+     </div>
+     {%endfor%}
+    
+         
+     {%if request.user.is_authenticated %}
+     
+   
+        <center><h1 style="font-size: x-large;">Please feel free to give us your feedback !</h1></center>
+        <div class="star_rating" >
+           <br>
+           <br>
+           <br>
+         
+        <div class="rating"> 
+           <input type="radio" name="rating5" value="5" id="5"><label for="5">☆</label>
+           <input type="radio" name="rating4" value="4" id="4"><label for="4">☆</label> 
+           <input type="radio" name="rating3" value="3" id="3"><label for="3">☆</label>
+           <input type="radio" name="rating2" value="2" id="2"><label for="2">☆</label>
+           <input type="radio" name="rating1" value="1" id="1"><label for="1">☆</label>
+       </div>
+   </div>
+
+
+               <div class="comment-area">
+               
+                   
+                   <textarea class="form-control" name="body" placeholder="Leave your comment here ..." rows="4" cols="100"></textarea>
+                   
+               </div>
+            
+                <input class="btn btn-trans btn-icon fa fa-camera add-tooltip" type="file"
+                       id="avatar" name="avatar" style="background-color: #8e44ad; width: 30rem;"
+                       accept="image/png, image/jpeg , image/jpg">
+                
+               
+               <div class="comment-btns mt-2">
+                   
+                   <div class="row">
+                       
+                 
+                       <div class="col-6">
+                           
+                           <div class="pull-right">
+                               {%csrf_token%}
+                              
+
+                           <button class="btn btn-success send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button>      
+                               
+                           </div>
+                       
+                       </div>
+                   
+                   </div>
+               
+               </div>
+       
+           
+           </div>
+       
+       </div>
+   
+   
+   </div>
+
+</div>
+ 
+{%else%}
+     
+<h1><a href="{% url 'login'%}">Login</a> /<a href="{% url 'register'%}">Sign up</a></h1>
+
+{%endif%}
+</form>
+</div>
+
+  </div>
+</section>
+
+<section class="home-about">
+    <div class="content">
+
+       <h3><center>The average rating of {{message_count}} visitors</center></h3><br>
+       <h2><center>{{ch}}</center></h2>
+        {% if AV >= 0.1 and AV < 1 %}
+       <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV >= 1.1 and AV < 2 %}
+       <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV >= 2.1 and AV < 3 %}
+       <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV >= 3.1 and AV < 4 %}
+       <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV >= 4.1 and AV < 5 %}
+       <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 0 %}
+       <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 1 %}
+       <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 2 %}
+       <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 3 %}
+       <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 4 %}
+       <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 5 %}
+       <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {%endif%}
+ 
+    </div>
+ </section>
+
+
+   {% endblock content %}
+  

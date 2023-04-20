@@ -1,0 +1,51 @@
+
+{% extends 'main.html' %}
+{%load static%}
+
+{% block content %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+   
+<!-- about section starts  -->
+
+    <div class="heading" >
+   
+      <h1>about us</h1>
+   </div>
+   
+    
+    
+    
+    <section class="about">
+    
+       <div class="image">
+          <img src="{% static 'images/فسيفساء.jpg' %}" alt="">
+       </div>
+    
+       <div class="content">
+          <h3>why choose us?</h3>
+          <p>We invented this site in order to help tourists or
+             even natives to know more about the existing museums in our 
+             beautiful country </p>
+          <p>Our site is free and available for all kind of users with 
+             confidencial ressources and informations about those museums
+             with a detailed description of the places, time of opening and cultural events
+             in each museum in Tunisia </p>
+          <div class="icons-container">
+             <div class="icons">
+                <i class="fas fa-map"></i>
+                <span>top museums</span>
+             </div>
+    
+             <div class="icons">
+                <i class="fas fa-headset"></i>
+                <span>24/7 guide service</span>
+             </div>
+          </div>
+       </div>
+    
+    </section>
+    
+    <!-- about section ends -->
+    
+    {% endblock content %}

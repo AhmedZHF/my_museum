@@ -1,0 +1,500 @@
+{% extends 'main.html' %}
+
+
+{% load static%}
+
+{% block content %}
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+
+.animated-progress {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  margin: 20px 10px;
+  border: 1px solid rgb(189, 113, 113);
+  overflow: hidden;
+  position: relative;
+}
+
+.animated-progress span {
+  height: 100%;
+  display: block;
+  width: 0;
+  color: rgb(255, 251, 251);
+  line-height: 30px;
+  position: absolute;
+  text-align: end;
+  padding-right: 5px;
+}
+
+.progress-blue span {
+  background-color: blue;
+}
+.progress-green span {
+  background-color: green;
+}
+.progress-purple span {
+  background-color: indigo;
+}
+.progress-red span {
+  background-color: red;
+}
+
+.star_rating{
+  user-select: none;
+  align-items: center;
+   background-color: white;
+   font-family:Arial, Helvetica, sans-serif;
+   flex-direction: column; 
+   padding:1.4rem 2.5rem;
+   margin: .4rem;
+  height: 40vh;
+  width: 100vh;
+  border-radius: .4rem;
+  text-align: center;
+    }
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 50px;
+    width: 1000px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 6px;
+}
+
+.comment-box{
+    
+    padding:2px;
+}
+
+
+
+.comment-area textarea{
+   resize: none; 
+        border: 1px solid #ad9f9f;
+}
+
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ffffff;
+    outline: 0;
+    box-shadow: 0 0 0 1px #d8c30b !important;
+}
+
+.send {
+    color: #fff;
+    background-color: #8e44ad;
+    border-color: #8e44ad;
+}
+
+.send:hover {
+    color: #fff;
+    background-color: #8e44ad;
+    border-color: #8e44ad;
+}
+
+
+
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+        position: relative;
+    width: 19px;
+    font-size: 25px;
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+ 
+
+  .decoration{
+   background:url(/static/images/bardo2.jpg) ;
+  }
+
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0, 0, 0, 0);
+}
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .8em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:500%;
+    line-height:1.2;
+    color:#ddd;
+}
+.rating:not(:checked) > label:before {
+    content:'★ ';
+    
+}
+.rating > input:checked ~ label {
+    color: #7d25a3;
+}
+.rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
+    color: #f1ee31;
+}
+.rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
+    color: #8e44ad;
+}
+
+ 
+
+
+
+    input{
+   width:100%;
+   padding:1rem;
+   font-size: 1.7rem;
+   color:rgb(185, 177, 177);
+   margin:.6rem 0;
+   border:.1rem solid rgba(209, 209, 209, 0.3);
+   text-transform: none;
+ }
+ 
+input{
+   border-color: var(--orange);;
+ }
+</style>
+
+<!-- home section starts  -->
+ <div class="decoration">
+  <h1 class="heading-title"> Bardo </h1>
+  <section class="home-about">
+  <div class="content">
+<h3>Discover the Bardo National Museum</h3>
+<p>The Bardo national Museum, Installed for over a century in the heart of a Beylical palace, is the oldest museum in Tunisia and the largest in the world in terms of the number of mosaics.
+    The museum contains thousands of objects collected during excavations carried out across the country.
+    These objects, grouped by department and distributed in about fifty rooms and galleries, reflect the various stages crossed by Tunisia, from prehistory to the middle of the last century. They are, in chronological order: prehistory, the Punic Libyan period, the Roman and early Christian periods, with the Vandal and Byzantine sequences and, finally, the Islamic period which runs until the contemporary era.
+    The Bardo Museum has earned a worldwide reputation thanks to its collection of mosaics, considered the richest, the most varied and the most refined and which finds among its most beautiful illustrations the paintings representing Virgil surrounded by muses, or the floor depicting Dionysus donating the vine to Ikarios, or this other celebrating the triumph of Neptune, to name but a few of the centerpieces. But this is not the only richness of the museum.
+    
+    Among the Major Parts of the Bardo, we must mention the “hermaïon”, an altar from the Mousterian period (-40,000 years ago) considered to be one of the very first forms of spiritual expression of humanity: a conical cluster 75cm high and 1.50m wide and made up of more than 4,000 flints, bones and limestone balls.
+    From the Punic period, it is necessary to point out the superb solid gold armor of a Campanian warrior, the jewels, the stele of the priest carrying a child to the sacrifice; not to mention the many objects of refined funerary furniture from various Mediterranean countries and which constitute the Greek and Egyptian collections of the museum.
+    The Greek collection was providentially enriched by the fruit of excavations, carried out in the 1940s off the coast of the city of Mahdia, in the wreck of a boat sunk by the storm around the first century and which transported the furniture and elements architecture of a patrician residence from the Hellenistic period. Among the masterpieces brought back from the funds: a superb Agôn in bronze, 1.20 m high.
+    The Roman period provided most of the Bardo collections: mosaics, of course, but also statuary, pottery, jewellery, coins, objects of worship, everyday objects, etc.
+    The Islamic department contains, in an Arab-Islamic setting, objects from various periods, manuscripts, jewelry, carved stones and wood, everyday objects from the land. Around an elegant patio, two small rooms contain objects that belonged to the reigning family, and a third room contains objects of Jewish worship.
+    
+   </p>
+   <br>
+   <h3> The Bardo National Museum in pictures </h3>
+
+
+
+  </div>
+
+</section>
+
+ </div>
+
+<section class="home">
+
+  <div class="swiper home-slider">
+
+     <div class="swiper-wrapper">
+
+        <div class="swiper-slide slide" style="background:url(/static/images/museebardo1.jpg) ">
+           <div class="content">
+              
+           </div>
+        </div>
+
+        <div class="swiper-slide slide" style="background:url(/static/images/museebardo.jpg) ">
+           <div class="content">
+              
+           </div>
+        </div>
+
+        <div class="swiper-slide slide" style="background:url(/static/images/museebardo3.jpg) ">
+           <div class="content">
+             
+            
+           </div>
+        </div>
+        
+     </div>
+
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+
+  </div>
+
+</section>
+
+<!-- home section ends -->
+
+<br><br>
+
+<section class="home-about">
+    <div class="content">
+  <h3> The Bardo National Museum in video </h3>
+  <br>
+  
+  <iframe width="1000" height="500" src="https://www.youtube.com/embed/NVCQmxhvqKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+  
+
+  
+  </div>
+
+  <div class="content">
+    <h3> The Bardo National Museum in map </h3>
+    <br>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3194.377909776324!2d10.131847514640905!3d36.80946317487916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd33b035d19d39%3A0x72c1cf14854e223c!2sBardo%20National%20Museum!5e0!3m2!1sen!2stn!4v1674173895401!5m2!1sen!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+  
+    
+    </div>
+  
+  
+  
+  </section>
+
+  
+
+
+<br><br>
+
+
+<section class="home-about">
+    <div class="content">
+        <h3>Hours of operation</h3>
+        <b><p style="color: #7d25a3;">From 01/06 to 15/09:   From 9:00 a.m. to 5:00 p.m.</p>
+
+           <p style="color: #7d25a3;">From 09/16 to 05/30:   From 9:30 a.m. to 4:30 p.m.</p> </b>
+            
+            <p style="color: #e20707;" >Museum closed on Mondays</p>
+            
+           <p  style="color: #d8276b;" >Entrance fee: Year 2019</p> 
+           
+           <p> 13 TND (Non residents)</p>
+            
+            <p>8 Dt (Residents)</p>
+            
+           <p>4 Dt (Tunisians aged over 60)</p> 
+            
+            <p style="color: #d8276b;"> 
+
+            Free entries for:
+
+          
+            <li style="font-size: medium;">Teacher card</li>
+            
+            <li style="font-size: medium;">Tunisian residing abroad (Consular card; Residence permit)</li>
+            
+            <li style="font-size: medium;">diplomat card</li>
+            
+           <li style="font-size: medium;">Tunisian student card</li>
+            
+           <li style="font-size: medium;"> Student Book</li>
+            
+            <li style="font-size: medium;">Disabled companion</li>
+            
+           <li style="font-size: medium;"> Disabled</li>
+            
+            <li style="font-size: medium;">Foreign Student Card</li>
+            
+            <li style="font-size: medium;">Inauguration</li>
+            
+            <li style="font-size: medium;">ICOM Card</li>
+            
+            <li style="font-size: medium;">Police card</li>
+            
+            <li style="font-size: medium;">Military Card</li>
+            
+            <li style="font-size: medium;">Press card</li>
+            
+            <li style="font-size: medium;">International Museum Day</li>
+            
+            <li style="font-size: medium;"> ICOMOS card</li>
+        </p>
+
+ 
+   </div>
+</section>
+
+<section class="home-about">
+    <div class="content">
+
+    <div class="comment-form">
+       <form action="" method="POST" >
+<div class="card">
+               
+    <div class="row">
+        
+        
+        <div class="col-10">
+            
+            <div class="comment-box ml-2">
+                
+               <center><h1 style="font-size:xx-large;">Comments & Ratings</h1></center>
+                <br>
+                <br>
+                <br>
+ 
+                <hr>
+     {% for message in room_messages%}
+   
+       
+     <div>
+      <p>
+         {% if request.user == message.user %}
+         <a href="{% url 'delete-message' message.id%}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        
+         {%endif%}
+         <small>@{{message.user}}  {{message.created|timesince}} ago  </small>
+
+      </p>
+      <p>{{message.body}} | {{message.rate}} <br>
+        {% if message.image %}
+        <img src="{{STATICFILES_DIRS}}/{{message.image}}" style="height: 30rem;">
+          {% endif %}
+        
+    </p>
+
+
+         <hr>
+     </div>
+     {%endfor%}
+    
+         
+     {%if request.user.is_authenticated %}
+    
+         <center><h1 style="font-size: x-large;">Please feel free to give us your feedback !</h1></center>
+         <div class="star_rating" >
+            <br>
+            <br>
+            <br>
+          
+         <div class="rating"> 
+            <input type="radio" name="rating5" value="5" id="5"><label for="5">☆</label>
+            <input type="radio" name="rating4" value="4" id="4"><label for="4">☆</label> 
+            <input type="radio" name="rating3" value="3" id="3"><label for="3">☆</label>
+            <input type="radio" name="rating2" value="2" id="2"><label for="2">☆</label>
+            <input type="radio" name="rating1" value="1" id="1"><label for="1">☆</label>
+        </div>
+    </div>
+
+
+                <div class="comment-area">
+                
+                    
+                    <textarea class="form-control" name="body" placeholder="Leave your comment here ..." rows="4" cols="100"></textarea>
+                    
+                </div>
+             
+                 <input class="btn btn-trans btn-icon fa fa-camera add-tooltip" type="file"
+                        id="avatar" name="avatar" style="background-color: #8e44ad; width: 30rem;"
+                        accept="image/png, image/jpeg , image/jpg">
+                 
+                
+                <div class="comment-btns mt-2">
+                    
+                    <div class="row">
+                        
+                  
+                        <div class="col-6">
+                            
+                            <div class="pull-right">
+                                {%csrf_token%}
+                               
+            <button class="btn btn-success send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button>      
+                                
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+        
+            
+            </div>
+        
+        </div>
+    
+    
+    </div>
+
+</div>
+  
+{%else%}
+      
+<h1><a href="{% url 'login'%}">Login</a> /<a href="{% url 'register'%}">Sign up</a></h1>
+
+{%endif%}
+</form>
+</div>
+
+   </div>
+</section>
+
+
+<section class="home-about">
+    <div class="content">
+
+       <h3><center>The average rating of {{message_count}} visitors</center></h3><br>
+       <h2><center>{{ch}}</center></h2>
+        {% if AV >= 0.1 and AV < 1 %}
+       <center><img src="{% static 'images/0-1.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV >= 1.1 and AV < 2 %}
+       <center><img src="{% static 'images/1-2.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV >= 2.1 and AV < 3 %}
+       <center><img src="{% static 'images/2-3.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV >= 3.1 and AV < 4 %}
+       <center><img src="{% static 'images/3-4.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV >= 4.1 and AV < 5 %}
+       <center><img src="{% static 'images/4-5.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 0 %}
+       <center><img src="{% static 'images/0.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 1 %}
+       <center><img src="{% static 'images/1.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 2 %}
+       <center><img src="{% static 'images/2.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 3 %}
+       <center><img src="{% static 'images/3.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 4 %}
+       <center><img src="{% static 'images/4.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {% elif AV == 5 %}
+       <center><img src="{% static 'images/5.jpg'%}" alt="" style="width: 250px; height: 50px;"></center>
+       {%endif%}
+ 
+    </div>
+ </section>
+
+
+    {% endblock content %}
+   
+

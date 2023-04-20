@@ -1,0 +1,32 @@
+
+
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+    .main{
+    background:linear-gradient(to right, #eee5e9 0%, #8e44ad 100%);
+}
+    </style>
+<div class="main">
+     
+    <table >
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Lien</th>
+            <th>Description</th>
+        </tr>
+        
+       
+    <tr>
+    <td>{{ data.name }}</td>
+    <td><img src="{{ STATICFILES_DIRS}}/{{data.image}}" style="height: 5em;"></td>
+    <td><a href="{{ data.lien }}">{{ data.lien }}</a></td>
+    <td>{{ data.description }}</td>
+
+</tr>
+</table>
+
+ 
+</div>

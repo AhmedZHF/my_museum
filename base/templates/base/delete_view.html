@@ -1,0 +1,22 @@
+
+<style>
+    
+    div{
+    background:linear-gradient(to right, #eee5e9 0%, #8e44ad 100%);
+}
+    </style>
+
+
+<div class="main">
+    <!-- Create a Form -->
+    <form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+        Are you sure you want to delete this museum ?
+        <input type="submit" value="Yes" />
+        <a href="{% url 'index' %}">Cancel </a>
+    </form>
+
+    
+
+</div>
